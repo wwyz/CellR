@@ -30,7 +30,7 @@ scene.add(galaxy);
 // Create dots
 var loader = new THREE.TextureLoader();
 loader.crossOrigin = "";
-var dotTexture = loader.load("img/dotTexture.png");
+//var dotTexture = loader.load("img/dotTexture.png");
 var dotsAmount = 3000;
 var dotsGeometry = new THREE.Geometry();
 var positions = new Float32Array(dotsAmount * 3);
@@ -92,7 +92,7 @@ bufferWrapGeom.addAttribute('color', attributeColors);
 var shaderMaterial = new THREE.ShaderMaterial({
     uniforms: {
         texture: {
-            value: dotTexture
+            //value: dotTexture
         }
     },
     vertexShader: document.getElementById("wrapVertexShader").textContent,
