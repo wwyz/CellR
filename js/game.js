@@ -503,7 +503,7 @@ function titlejustify(){
     
     if(division >10000){
         divisiontitle = "超强繁殖"
-        finaltitle = cellnotitle +" "+ division +" "+zombietitle+" " + celltypetitle;
+        finaltitle = cellnotitle +" "+ divisiontitle +" "+zombietitle+" " + celltypetitle;
     }
     
 
