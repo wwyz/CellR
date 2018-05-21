@@ -463,14 +463,14 @@ function titlejustify(){
     
     var typecalc= surviveability + adaption + division;
     
-    if(typecalc >100){
-        celltypetitle = "古核细胞"
-    }else if(typecalc > 500){
-        celltypetitle = "原核细胞"
+    if (typecalc > 100000){
+        celltypetitle = "超级细胞"
     }else if (typecalc > 1000){
         celltypetitle = "真核细胞"
-    }else if (typecalc > 100000){
-        celltypetitle = "超级细胞"
+    }else if(typecalc > 500){
+        celltypetitle = "原核细胞"
+    }else if(typecalc >100){
+        celltypetitle = "古核细胞"
     }else {
         celltypetitle = "单细胞"
     }
@@ -505,6 +505,7 @@ function titlejustify(){
         divisiontitle = "超强繁殖"
         finaltitle = cellnotitle +" "+ divisiontitle +" "+zombietitle+" " + celltypetitle;
     }
+    
     
 
 }
