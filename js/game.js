@@ -556,7 +556,7 @@ window.addEventListener('message', function(e) {
                         console.log("recived by page:" + e + ", e.data:"+ JSON.stringify(e.data));
                         
                         }else if(result.surviveability){
-                        var datacollect='<img src=\"img/cellinfo.png \" height=\"120\" width=\"120\" id=\"jinhua\"></img><h4>编号<'+result.id+'>细胞数据</h4><br>细胞数:'+result.cellno+'<br>适应性:'+result.adaption+' 生存性:'+result.surviveability+' 繁殖性:'+result.division+'<br>外部环境:'+result.environment+' 存活日:'+ result.day+'<br> 总体得分:'+result.totoalscore+'<br>最终评价:'+ result.finaltitle+'<br>细胞创造者: '+result.creator+'<br>所属族群:'+result.belong;
+                        var datacollect='<img src=\"img/cellinfo.png \" height=\"120\" width=\"120\" id=\"jinhua\"></img><h4>编号<'+result.id+'>细胞数据</h4><br>细胞数:'+result.cellno+'<br>适应性:'+result.adaption+' 生存性:'+result.surviveability+' 繁殖性:'+result.division+'<br>外部环境:'+result.environment+' 存活日:'+ result.day+'<br> 总体得分:'+result.totoalscore+'<br>最终评价:'+ result.finaltitle+'<br><font color=\'white\'>细胞创造者: '+result.creator+'<br>所属族群:'+result.belong+'</font>';
                         layer.msg(datacollect, {
                                   time: 0 //不自动关闭
                                   ,btn: ['确定']
