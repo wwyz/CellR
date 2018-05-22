@@ -93,18 +93,18 @@ function aboutusfun(){
               console.log(args);
               
               
-              window.postMessage({
-                                 "target": "contentscript",
-                                 "data":{
-                                 "to" : dappAddress,
-                                 "value" : "0.0001",
-                                 "contract" : {
-                                 "function" : func,
-                                 "args" : args
-                                 }
-                                 },
-                                 "method": "neb_sendTransaction"
-                                 }, "*");
+//              window.postMessage({
+//                                 "target": "contentscript",
+//                                 "data":{
+//                                 "to" : dappAddress,
+//                                 "value" : "0.0001",
+//                                 "contract" : {
+//                                 "function" : func,
+//                                 "args" : args
+//                                 }
+//                                 },
+//                                 "method": "neb_sendTransaction"
+//                                 }, "*");
               }
               
               });
@@ -148,11 +148,11 @@ function generalupdate(){
         var datacollect='游戏结束<br>细胞数:'+cellno+'<br>适应性:'+adaption+' 生存性:'+surviveability+' 繁殖性:'+division+'<br>外部环境:'+environment+' 存活日:'+ day+'<br> 总体得分:'+totoalscore+'<br> 最终评价:'+ finaltitle;
         layer.msg(datacollect, {
                   time: 0 //不自动关闭
-                  ,btn: ['确定'],area: ['350px', '217px'],btnAlign:'c',shade: 0.8
+                  ,btn: ['确定'],area: ['480px', '300px'],btnAlign:'c',shade: 0.8
                   ,yes: function(index){
                   layer.close(index);
                   layer.confirm('<p>是否上传DNA，融合进族群？<p>', {type:0,
-                                btn: ['确认','取消'] ,anim: 0,btnAlign:'c',shade: 0.8,closeBtn: 0,area: ['480px', '300px'],offset:'t' //按钮
+                                btn: ['确认','取消'] ,anim: 0,btnAlign:'c',shade: 0.8,closeBtn: 0,area: ['480px', '300px'] //按钮
                                 }, function(){
                                 layer.msg('DNA融合中...');
                                 savecell();
@@ -448,15 +448,15 @@ function titlejustify(){
     if(cellno < 100){
         cellnotitle = "少数";
     }else if(cellno < 1000){
-        cellnotitle = "较少";
+        cellnotitle = "<font color='blue'>较少</font>";
     }else if (cellno < 10000){
-        cellnotitle = "中等数量";
+        cellnotitle = "<font color='blue'>中等数量</font>";
     }else if (cellno < 100000){
-        cellnotitle = "较多";
+        cellnotitle = "<font color='gold'>较多</font>";
     }else if (cellno < 10000000){
-        cellnotitle = "很多";
+        cellnotitle = "<font color='gold'>很多</font>";
     }else if (cellno > 10000000000){
-        cellnotitle = "超级多";
+        cellnotitle = "<font color='red'>超级多</font>";
     }else {
         cellnotitle = "极少";
     }
@@ -464,13 +464,13 @@ function titlejustify(){
     var typecalc= surviveability + adaption + division;
     
     if (typecalc > 100000){
-        celltypetitle = "超级细胞"
+        celltypetitle = "<font color='red'>超级细胞<font>"
     }else if (typecalc > 1000){
-        celltypetitle = "真核细胞"
+        celltypetitle = "<font color='gold'>真核细胞<font>"
     }else if(typecalc > 500){
-        celltypetitle = "原核细胞"
+        celltypetitle = "<font color='violet'>原核细胞</font>"
     }else if(typecalc >100){
-        celltypetitle = "古核细胞"
+        celltypetitle = "<font color='blue'>古核细胞</blue>"
     }else {
         celltypetitle = "单细胞"
     }
@@ -478,33 +478,54 @@ function titlejustify(){
     var zombietitle = "";
     var zombierandom = Math.random();
     if(zombierandom > 0.99){
-        zombietitle = "僵尸";
+        zombietitle = "<font color='red'>僵尸</font>";
     }else if(zombierandom > 0.95){
-        zombietitle = "僵尸亚种";
+        zombietitle = "<font color='gold'>僵尸亚种</gold>";
     }else{
         zombietitle = "正常";
     }
-    
+    var environmenttitle ="";
+    if(environment > 8){
+        environmenttitle = "<font color='red'>超强环境抵抗</red>";
+    }else if(environment>6){
+        environmenttitle = "<font color='gold'>较强环境抵抗</font>";
+        
+    }else if(environment > 3){
+        environmenttitle = "<font color='blue'>较弱环境抵抗</font>";
+        
+    }else{
+        environmenttitle = "弱环境抵抗";
+        
+    }
+        
     var survivetitle = "";
     var adaptitle = "";
     var divisiontitle = "";
-    finaltitle = cellnotitle +" "+ zombietitle+" " + celltypetitle;
+    finaltitle = cellnotitle +" "+ zombietitle+" " +environmenttitle+" "+ celltypetitle;
     
     if(adaption > 10000){
-        adaptitle = "超强适应"
-        finaltitle = cellnotitle +" "+ adaptitle +" "+zombietitle+" " + celltypetitle;
+        adaptitle = "<font color='red'>超强适应</font>"
+        finaltitle = cellnotitle +" "+ adaptitle +" "+zombietitle+" " + environmenttitle+" "+celltypetitle;
     }
     
     if(surviveability>10000 ){
-        survivetitle = "超强生存"
-        finaltitle = cellnotitle +" "+ survivetitle +" "+zombietitle+" " + celltypetitle;
+        survivetitle = "<font color='red'>超强生存</font>"
+        finaltitle = cellnotitle +" "+ survivetitle +" "+zombietitle+" " + environmenttitle+" "+celltypetitle;
         
     }
     
     if(division >10000){
-        divisiontitle = "超强繁殖"
-        finaltitle = cellnotitle +" "+ divisiontitle +" "+zombietitle+" " + celltypetitle;
+        divisiontitle = "<font color='red'>超强繁殖</font>"
+        finaltitle = cellnotitle +" "+ divisiontitle +" "+zombietitle+" " + environmenttitle+" "+celltypetitle;
     }
+    
+    if(division > 10000 && surviveability > 10000 && adaption > 10000){
+          divisiontitle = "<font color='red'>超强繁殖</font>"
+         survivetitle = "<font color='red'>超强生存</font>"
+           adaptitle = "<font color='red'>超强适应</font>"
+           finaltitle = cellnotitle +" "+ divisiontitle +" "+ survivetitle +" "+ adaptitle +" "+'<br>'+" "+zombietitle+" " + environmenttitle+" "+celltypetitle;
+    }
+  
     
     
 
