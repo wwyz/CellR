@@ -464,13 +464,13 @@ function titlejustify(){
     var typecalc= surviveability + adaption + division;
     
     if (typecalc > 100000){
-        celltypetitle = "<font color='red'>超级细胞<font>"
+        celltypetitle = "<font color='red'>超级细胞</font>"
     }else if (typecalc > 1000){
-        celltypetitle = "<font color='gold'>真核细胞<font>"
+        celltypetitle = "<font color='gold'>真核细胞</font>"
     }else if(typecalc > 500){
         celltypetitle = "<font color='violet'>原核细胞</font>"
     }else if(typecalc >100){
-        celltypetitle = "<font color='blue'>古核细胞</blue>"
+        celltypetitle = "<font color='blue'>古核细胞</font>"
     }else {
         celltypetitle = "单细胞"
     }
