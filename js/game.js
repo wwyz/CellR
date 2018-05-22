@@ -480,13 +480,13 @@ function titlejustify(){
     if(zombierandom > 0.99){
         zombietitle = "<font color='red'>僵尸</font>";
     }else if(zombierandom > 0.95){
-        zombietitle = "<font color='gold'>僵尸亚种</gold>";
+        zombietitle = "<font color='gold'>僵尸亚种</font>";
     }else{
         zombietitle = "正常";
     }
     var environmenttitle ="";
     if(environment > 8){
-        environmenttitle = "<font color='red'>超强环境抵抗</red>";
+        environmenttitle = "<font color='red'>超强环境抵抗</font>";
     }else if(environment>6){
         environmenttitle = "<font color='gold'>较强环境抵抗</font>";
         
