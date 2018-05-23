@@ -445,7 +445,9 @@ function titlejustify(){
     var cellnotitle="";
     var celltypetitle="";
     
-    if(cellno < 100){
+    if(cellno < 50){
+        cellnotitle = "极少";
+    }else if(cellno < 100){
         cellnotitle = "少数";
     }else if(cellno < 1000){
         cellnotitle = "<font color='blue'>较少</font>";
@@ -455,10 +457,10 @@ function titlejustify(){
         cellnotitle = "<font color='gold'>较多</font>";
     }else if (cellno < 10000000){
         cellnotitle = "<font color='gold'>很多</font>";
-    }else if (cellno > 10000000000){
+    }else if(cellno < 100000000){
         cellnotitle = "<font color='red'>超级多</font>";
     }else {
-        cellnotitle = "极少";
+        cellnotitle = "<font color='red'>数以亿计</font>";
     }
     
     var typecalc= surviveability + adaption + division;
